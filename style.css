@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Viaoda+Libre&display=swap');
+
+:root {
+    --font: 'Outfit', 'Bebas Neue', 'Roboto', 'sans-serif';
+    --background: rgb(85, 0, 85);
+    --background-content: linear-gradient(to right, rgb(117, 0, 117), rgb(129, 2, 141));
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--background-content);
+}
+
+header {
+    background-color: var(--background);
+    display: flex;
+    justify-content: space-between;
+}
+
+header .nav-title img {
+    width: 15rem;
+    margin-left: 6em;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin-right: 4em;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}
+
+header ul li a:hover {
+    color: rgb(224, 0, 224);
+}
+
+/* Corpo */
+
+main {
+    flex: 1;
+}
+
+body::-webkit-scrollbar {
+    height: 8px;
+    /* Scroll horizontal */
+    width: 8px;
+    /* Scroll vertical */
+}
+
+body::-webkit-scrollbar-track {
+    background: rgba(46, 0, 62, .5);
+    /* Cor do trilho */
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgba(160, 0, 160, .3);
+    /* Cor do "botão" do scroll */
+    border-radius: 10px;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari */
+}
+
+.carousel-container {
+    position: relative;
+    width: 100vw;
+    overflow: hidden;
+    margin: 4rem 0;
+    padding: 0;
+}
+
+
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.card {
+    width: 280px;
+    height: 400px;
+    background: rgba(206, 0, 189, 0.1);
+    margin: 10px;
+    padding: 0 20px;
+    flex: 0 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    box-sizing: border-box;
+    word-break: break-word;
+}
+
+.card img {
+    width: 210px;
+    border-radius: 5px;
+}
+
+.card a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: .85em;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, .3);
+    border: 1px solid rgba(255, 255, 255, .3);
+    border-radius: 5px;
+    padding: 8px 20px;
+    color: rgb(255, 255, 255);
+    transition: background-color .17s ease;
+}
+
+.card a:hover {
+    background-color: rgba(255, 255, 255, .3);
+}
+
+.card p {
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1;
+}
+
+.arrow.left {
+    left: 0;
+}
+
+.arrow.right {
+    right: 0;
+}
+
+/* Rodapé */
+
+footer {
+    background-color: var(--background);
+    text-align: center;
+    font-size: 17.8px;
+    color: white;
+    padding: 1.5em 0;
+    margin-top: auto;
+}
