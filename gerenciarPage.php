@@ -8,9 +8,29 @@
     <title>Gerenciar itens</title>
 </head>
 <body>
+    <?php
+    session_start();
+    if(!isset($_SESSION ['login'])){
+        unset($_SESSION ['nao_autenticado']);
+        unset($_SESSION ['mensagem_header'] ); 
+        unset($_SESSION ['mensagem'] ); 
+        header('location: loginPage.php');
+        exit();                                         
+    }
+    ?>
     <?php require 'db/DB.php' ?>
     <?php require 'geral/cabecalho.php'?>
-    <?php require 'db/Select_command.php' ?>
+
+    <div class="gerenciarPage-main-container">
+        <h1>Tabela de produtos da loja</h1>
+        <div class="table-scroll">
+            <?php require 'db/Select_command.php' ?>
+        </div>
+        <div class="add-container">
+            <a href='db/Include_command.php' class='addProducts-button button'>Adicionar produto</a>
+        </div>
+    </div>
+
     <?php require 'geral/rodape.php'?>
 </body>
 </html>

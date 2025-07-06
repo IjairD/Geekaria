@@ -1,35 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Viaoda+Libre&display=swap');
 
 :root {
-    --font: 'Outfit', 'Bebas Neue', 'Roboto', 'sans-serif';
-    --background: rgb(85, 0, 85);
-    --background-content: linear-gradient(to right, rgb(117, 0, 117), rgb(129, 2, 141));
+    --font-family: 'Outfit', 'Bebas Neue', 'Roboto', 'sans-serif';
+    --font-color: white;
+    --background-content: rgb(85, 0, 85);
+    --background: linear-gradient(to right, rgb(117, 0, 117), rgb(129, 2, 141));
+    --shadow: 3px 3px 10px rgba(0, 0, 0, .3);
 }
 
 html,
 body {
     height: 100%;
+    width: 100%;
     margin: 0;
     overflow-x: hidden;
+    color: var(--font-color);
 }
 
 body {
-    font-family: var(--font);
+    font-family: var(--font-family);
     display: flex;
     flex-direction: column;
     height: 100%;
-    background: var(--background-content);
+    background: var(--background);
 }
 
+
+/* Cabeçalho */
 header {
-    background-color: var(--background);
+    background-color: var(--background-content);
     display: flex;
     justify-content: space-between;
 }
 
 header .nav-title img {
     width: 15rem;
-    margin-left: 6em;
+    margin-left: 3em;
 }
 
 header ul {
@@ -49,33 +55,27 @@ header ul li a:hover {
     color: rgb(224, 0, 224);
 }
 
-/* Corpo */
-
 main {
     flex: 1;
 }
 
 body::-webkit-scrollbar {
     height: 8px;
-    /* Scroll horizontal */
     width: 8px;
-    /* Scroll vertical */
 }
 
 body::-webkit-scrollbar-track {
-    background: rgba(46, 0, 62, .5);
-    /* Cor do trilho */
+    background: rgba(234, 172, 255, 0.3);
 }
 
 body::-webkit-scrollbar-thumb {
-    background: rgba(160, 0, 160, .3);
-    /* Cor do "botão" do scroll */
+    background: rgba(39, 0, 39, 0.8);
     border-radius: 10px;
 }
 
+/* Index */
 .carousel::-webkit-scrollbar {
     display: none;
-    /* Chrome, Safari */
 }
 
 .carousel-container {
@@ -102,7 +102,7 @@ body::-webkit-scrollbar-thumb {
     padding: 0 20px;
     flex: 0 0 auto;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,7 +114,18 @@ body::-webkit-scrollbar-thumb {
 }
 
 .card img {
+    max-width: 210px;
+    max-height: 210px;
+    border-radius: 5px;
+}
+
+.card .img-null {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 210px;
+    height: 210px;
+    border: 1px solid rgb(56, 0, 56);
     border-radius: 5px;
 }
 
@@ -122,7 +133,7 @@ body::-webkit-scrollbar-thumb {
     text-decoration: none;
     text-transform: uppercase;
     font-size: .85em;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, .3);
+    box-shadow: var(--shadow);
     border: 1px solid rgba(255, 255, 255, .3);
     border-radius: 5px;
     padding: 8px 20px;
@@ -134,13 +145,13 @@ body::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, .3);
 }
 
-.card p {
-    color: rgb(255, 255, 255);
+.card .description {
     font-weight: 400;
+    min-height: 70px;
+    max-height: 70px;
+    margin: 12px 0;
+    text-align: center;
     overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
 }
 
 .arrow {
@@ -164,13 +175,261 @@ body::-webkit-scrollbar-thumb {
     right: 0;
 }
 
-/* Rodapé */
+/* Páginde de gerenciarPage */
+table {
+    text-align: center;
+    border-collapse: collapse;
+    background-color: var(--background-content);
+    width: 100%;
+    table-layout: fixed;
+}
 
+.table-scroll {
+    height: 28em;
+    overflow-y: auto;
+    box-shadow: var(--shadow);
+}
+
+.table-scroll::-webkit-scrollbar {
+    width: 12px;
+}
+
+.table-scroll::-webkit-scrollbar-track {
+    background: rgba(234, 172, 255, 0.3);
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+    background: rgba(39, 0, 39, 0.8);
+    border-radius: 10px;
+    width: 8px;
+    border: 3px solid transparent;
+    /* cria "espaço" ao redor do thumb */
+    background-clip: content-box;
+}
+
+.gerenciarPage-main-container {
+    margin: 2rem 0 5rem 4rem;
+    width: 75em;
+}
+
+.gerenciarPage-main-container h1 {
+    text-transform: uppercase;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
+}
+
+table td,
+th {
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+}
+
+table th {
+    padding: 1em 0;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: var(--background-content);
+}
+
+table td {
+    height: 119px;
+}
+
+table .td-description {
+    max-width: 26%;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+table img {
+    width: 7rem;
+    border-radius: 7px;
+}
+
+table .img-null-select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7em;
+    height: 7em;
+    margin: auto;
+    border-radius: 7px;
+    border: 1px solid rgb(41, 0, 41);
+}
+
+table i {
+    color: white;
+    font-size: 1.3rem;
+}
+
+.add-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.gerenciarPage-main-container .addProducts-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+}
+
+
+/* Página de delete */
+
+
+.delete-form {
+    width: 66rem;
+}
+
+
+/* Página de update */
+.delete-form td,
+.update-table td,
+.include-table td {
+    border: none;
+    text-align: center;
+}
+
+.update-table,
+.add-table {
+    width: 70rem;
+}
+
+.update-table input:not(#Imagem),
+.update-table select,
+.add-table input:not(#Imagem),
+.add-table select {
+    font-family: var(--font-family);
+    border-radius: 7px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--background);
+    font-size: 15px;
+    padding: 3px 0 3px 7px;
+}
+
+.input-update-container {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 30px auto;
+}
+
+.input-update-container label:not(.name) {
+    margin-top: 7px;
+}
+
+/* Página de Add Produtos */
+
+
+
+
+/* Modelo usado para as páginas de update, delete e addProducts e para os botões */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.button {
+    color: var(--font-color);
+    background-color: var(--background-content);
+    font-family: var(--font);
+    border-radius: 7px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--background);
+    cursor: pointer;
+    text-decoration: none;
+    padding: 7px 30px;
+    font-size: 1.35em;
+}
+
+
+/* Página de login */
+.container {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+main .login-container {
+    width: 25rem;
+    height: 25rem;
+    box-shadow: var(--shadow);
+    background-color: var(--background-content);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+main .login-container h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 50px;
+    margin: 0 0 25px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, .5);
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+}
+
+main form input {
+    margin: 0 20px;
+    padding: 5px 5px;
+    font-size: 17px;
+    font-family: var(--font-family);
+    border-radius: 7px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--background);
+}
+
+main form label {
+    margin: 0 20px 3px;
+    font-size: 1.18rem;
+}
+
+main form .trigger {
+    display: flex;
+    margin: 30px 20px 0;
+    justify-content: space-between;
+}
+
+main span {
+    color: rgb(221, 0, 147);
+}
+
+/* Página de cadastro */
+main .register-container {
+    width: 40rem;
+    height: 36rem;
+}
+
+main .register-container h1 {
+    margin: 30px 20px 10px;
+    text-transform: uppercase;
+    text-shadow: var(--shadow);
+    font-size: 40px;
+}
+
+
+/* Rodapé */
 footer {
-    background-color: var(--background);
+    background-color: var(--background-content);
     text-align: center;
     font-size: 17.8px;
-    color: white;
     padding: 1.5em 0;
     margin-top: auto;
 }

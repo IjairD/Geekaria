@@ -1,6 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="../Images/miniLogo.png" type="png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Gerenciar itens</title>
+</head>
 <body>
-
-    <?php require 'bd/DB.php'; ?>
+    <header>
+        <div class="nav-title">
+            <img src="../Images/logoGeekaria.png" alt="Logo da Geekaria">
+        </div>
+    </header>
+    <?php require 'DB.php'; ?>
     <?php
 
     $conn = new mysqli($servername, $username, $password, $database);
@@ -22,28 +35,24 @@
     }
     $conn->close();
     ?>
-    <div class="">
-        <div class="">
-            <h2>Informe os dados do novo do Médico</h2>
-        </div>
-        <form class="" action="Include_command_exe.php" method="post" enctype="multipart/form-data">
-            <table class=''>
+    <div class="form-container">
+        <h1 style="text-transform: uppercase;">Informe os dados do novo do produto</h1>
+        <form action="Include_command_exe.php" method="post" enctype="multipart/form-data">
+            <table class='add-table'>
                 <tr>
-                    <td style="width:50%;">
-                        <p>
-                            <label class=""><b>Nome</b>*</label>
-                            <input class="" name="Nome" type="text" pattern="[a-zA-Z\u00C0-\u00FF ]{5,100}$" title="Nome do Produto" required>
-                        </p>
-                        <p>
-                            <label class=""><b>Valor</b>*</label>
-                            <input class="" name="Valor" id="Valor" type="number" step="0.01" placeholder="0.00" title="Preço" pattern="^\d+(\.\d{1,2})?$" required>
-                        </p>
-                        <p>
-                            <label class=""><b>Descrição</b></label>
-                            <input class="" name="Descricao" type="text" placeholder="descrição" title="descrição" </p>
-                        <p>
-                        <p><label class=""><b>Categoria</b>*</label>
-                            <select name="Categoria" id="Categoria" class="" required>
+                    <td>
+                        <div class="input-update-container">
+                            <label for="Nome" class="name"><b>Nome*:</b></label>
+                            <input name="Nome" id="Nome" type="text" placeholder="Nome do produto" pattern="[a-zA-Z\u00C0-\u00FF ]{5,100}$" title="Nome do Produto" required>
+                    
+                            <label for="Valor"><b>Valor*:</b></label>
+                            <input name="Valor" id="Valor" type="number" step="0.01" placeholder="0.00" title="Preço" pattern="^\d+(\.\d{1,2})?$" required>
+                        
+                            <label for="Descricao"><b>Descrição:</b></label>
+                            <input name="Descricao" id="Descricao" type="text" placeholder="Descrição" title="descrição" </p>
+                        
+                            <label for="Categoria"><b>Categoria*:</b></label>
+                            <select name="Categoria" id="Categoria" required>
                                 <option value=""></option>
                                 <?php
                                 foreach ($optionsEspec as $key => $value) {
@@ -51,27 +60,26 @@
                                 }
                                 ?>
                             </select>
-                        </p>
+                        </div>
                     </td>
                     <td>
-                        <p style="text-align:center"><label class="w3-text-IE"><b>Imagem do Produto: </b></label></p>
-                        <p style="text-align:center"><img id="imagemSelecionada" src="imagens/padrao.jpg" /></p>
-                        <p style="text-align:center"><label class="w3-btn w3-theme">Escolha uma imagem
-                                <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
-                                <input type="file" id="Imagem" name="Imagem" accept="imagem/*" onchange="validaImagem(this);"></label>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="text-align:center">
-                        <p>
-                            <input type="submit" value="Salvar" class="">
-                            <input type="button" value="Cancelar" class="" onclick="window.location.href='index.php'">
-                        </p>
+                        <label for="imagemSelecionada"><b>Imagem do Produto:</b></label>
+                        <p style="text-align:center"></p><img id="imagemSelecionada" src="imagens/padrao.jpg"><br>
+                        <label for="Imagem">Escolha uma imagem</label><br>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
+                        <input type="file" id="Imagem" name="Imagem" accept="imagem/*" onchange="validaImagem(this);"></label><br>
                     </td>
                 </tr>
             </table>
+
+            <div class="button-container">
+                <input type="button" value="Cancelar" class="button" onclick="window.location.href='../gerenciarPage.php'">
+                <input type="submit" value="Salvar" class="button">
+            </div>
         </form>
         <br>
     </div>
+    <?php require '../geral/rodape.php'?>
+    <script src="../JS/script.js" ></script>
 </body>
+</html>
