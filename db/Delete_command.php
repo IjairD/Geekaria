@@ -47,7 +47,7 @@
         <h1 style="text-transform: uppercase;">Dados do produto que será excluído</h1>
         <form action="Delete_command_exe.php" method="post" class="delete-form">
             <input type="hidden" id="Id" name="Id" value="<?php echo $id_produto; ?>">
-            <table>
+            <table class="delete-table">
                 <tr>
                     <th>Nome</th>
                     <th>Valor</th>

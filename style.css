@@ -273,17 +273,16 @@ table i {
 
 
 /* Página de delete */
-
-
-.delete-form {
+.delete-table {
     width: 66rem;
+    box-shadow: var(--shadow);
 }
 
 
 /* Página de update */
-.delete-form td,
+.delete-table td,
 .update-table td,
-.include-table td {
+.add-table td {
     border: none;
     text-align: center;
 }
@@ -291,6 +290,7 @@ table i {
 .update-table,
 .add-table {
     width: 70rem;
+    box-shadow: var(--shadow);
 }
 
 .update-table input:not(#Imagem),
@@ -316,10 +316,6 @@ table i {
 .input-update-container label:not(.name) {
     margin-top: 7px;
 }
-
-/* Página de Add Produtos */
-
-
 
 
 /* Modelo usado para as páginas de update, delete e addProducts e para os botões */
@@ -349,6 +345,11 @@ table i {
     text-decoration: none;
     padding: 7px 30px;
     font-size: 1.35em;
+    transition: background-color .18s ease;
+}
+
+.button:hover {
+    background-color: rgba(102, 25, 102, 0.671);
 }
 
 
@@ -358,7 +359,6 @@ table i {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 main .login-container {

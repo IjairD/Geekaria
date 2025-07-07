@@ -27,7 +27,7 @@
                 echo "<tr>";
                 echo "<td>" . $row["id"] . "</td>";
                 echo "<td>" . $row["nome_produto"] . "</td>";
-                echo "<td>" . $row["valor"] . "</td>";
+                echo "<td>R$ " . number_format($row["valor"], 2, ',', '.') . "</td>";
                 echo "<td class='td-description'>" . $row["descricao"] . "</td>";
                 if ($row['imagem']) { ?>
                     <td>
