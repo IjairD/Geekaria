@@ -59,7 +59,7 @@
                     <td>
                         <div class="input-update-container">
                             <label for="Nome" class="name"><b>Nome*:</b></label>
-                            <input name="Nome" id="Nome" type="text" spellcheck="false" pattern="[a-zA-Z\u00C0-\u00FF ]{5,100}$" title="Nome do Produto" value="<?php echo $nome_produto ?>" required>
+                            <input name="Nome" id="Nome" type="text" spellcheck="false" pattern="[a-zA-Z0-9\u00C0-\u00FF .\-]{5,100}$" title="Nome do Produto" value="<?php echo $nome_produto ?>" required>
 
                             <label for="Valor"><b>Valor*:</b></label>
                             <input name="Valor" id="Valor" type="number" step="0.01" placeholder="0.00" title="Preço" pattern="^\d+(\.\d{1,2})?$" value="<?php echo $valor ?>" required>
