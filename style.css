@@ -14,23 +14,23 @@ body {
     width: 100%;
     margin: 0;
     overflow-x: hidden;
-    color: var(--font-color);
 }
 
 body {
-    font-family: var(--font-family);
+    height: 100%;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    font-family: var(--font-family);
+    color: var(--font-color);
     background: var(--background);
 }
 
 
 /* Cabeçalho */
 header {
-    background-color: var(--background-content);
     display: flex;
     justify-content: space-between;
+    background-color: var(--background-content);
 }
 
 header .nav-title img {
@@ -39,26 +39,26 @@ header .nav-title img {
 }
 
 header ul {
-    list-style: none;
     display: flex;
     gap: 30px;
+    list-style: none;
     margin-right: 4em;
 }
 
 header ul li a {
     text-decoration: none;
-    color: white;
     text-transform: uppercase;
+    color: var(--font-color);
 }
 
 header ul li a:hover {
     color: rgb(224, 0, 224);
 }
 
-main {
-    flex: 1;
-}
 
+/* Index */
+
+/* Estilo na barra de rolagem da página */
 body::-webkit-scrollbar {
     height: 8px;
     width: 8px;
@@ -73,14 +73,10 @@ body::-webkit-scrollbar-thumb {
     border-radius: 10px;
 }
 
-/* Index */
-.carousel::-webkit-scrollbar {
-    display: none;
-}
-
+/* Criação do carrosel dos card */
 .carousel-container {
-    position: relative;
     width: 100vw;
+    position: relative;
     overflow: hidden;
     margin: 4rem 0;
     padding: 0;
@@ -97,20 +93,20 @@ body::-webkit-scrollbar-thumb {
 .card {
     width: 280px;
     height: 400px;
-    background: rgba(206, 0, 189, 0.1);
     margin: 10px;
     padding: 0 20px;
-    flex: 0 0 auto;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
     display: flex;
+    flex: 0 0 auto;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-weight: bold;
     font-size: 18px;
+    border-radius: 8px;
     box-sizing: border-box;
     word-break: break-word;
+    box-shadow: var(--shadow);
+    background: rgba(206, 0, 189, 0.1);
 }
 
 .card img {
@@ -120,24 +116,24 @@ body::-webkit-scrollbar-thumb {
 }
 
 .card .img-null {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 210px;
     height: 210px;
-    border: 1px solid rgb(56, 0, 56);
+    display: flex;
     border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(56, 0, 56);
 }
 
 .card a {
+    padding: 8px 20px;
+    font-size: .85em;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: .85em;
-    box-shadow: var(--shadow);
     border: 1px solid rgba(255, 255, 255, .3);
     border-radius: 5px;
-    padding: 8px 20px;
-    color: rgb(255, 255, 255);
+    box-shadow: var(--shadow);
+    color: var(--font-color);
     transition: background-color .17s ease;
 }
 
@@ -146,25 +142,25 @@ body::-webkit-scrollbar-thumb {
 }
 
 .card .description {
-    font-weight: 400;
     min-height: 70px;
     max-height: 70px;
     margin: 12px 0;
+    font-weight: 400;
     text-align: center;
     overflow: hidden;
 }
 
 .arrow {
-    position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    z-index: 1;
     border: none;
     padding: 10px;
-    cursor: pointer;
     font-size: 24px;
-    z-index: 1;
+    cursor: pointer;
+    position: absolute;
+    color: var(--font-color);
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .arrow.left {
@@ -175,15 +171,62 @@ body::-webkit-scrollbar-thumb {
     right: 0;
 }
 
-/* Páginde de gerenciarPage */
+/* Página de gerenciar itens */
+
+/* Estilo na tabela */
 table {
+    width: 100%;
     text-align: center;
+    table-layout: fixed;
     border-collapse: collapse;
     background-color: var(--background-content);
-    width: 100%;
-    table-layout: fixed;
 }
 
+table td,
+th {
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+}
+
+table th {
+    top: 0;
+    z-index: 1;
+    padding: 1em 0;
+    position: sticky;
+    background-color: var(--background-content);
+}
+
+table td {
+    height: 119px;
+}
+
+table .td-description {
+    max-width: 26%;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+table img {
+    width: 7rem;
+    border-radius: 7px;
+}
+
+table .img-null-select {
+    width: 7em;
+    height: 7em;
+    margin: auto;
+    display: flex;
+    border-radius: 7px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(41, 0, 41);
+}
+
+table i {
+    font-size: 1.3rem;
+    color: var(--font-color);
+}
+
+/* Estilo da barra de rolagem dentro da tabela */
 .table-scroll {
     height: 28em;
     overflow-y: auto;
@@ -199,66 +242,22 @@ table {
 }
 
 .table-scroll::-webkit-scrollbar-thumb {
-    background: rgba(39, 0, 39, 0.8);
-    border-radius: 10px;
     width: 8px;
-    border: 3px solid transparent;
-    /* cria "espaço" ao redor do thumb */
+    border-radius: 10px;
     background-clip: content-box;
+    border: 3px solid transparent;
+    background: rgba(39, 0, 39, 0.8);
 }
 
+/* Conteúdo dentro do main do gerenciar itens */
 .gerenciarPage-main-container {
-    margin: 2rem 0 5rem 4rem;
     width: 75em;
+    margin: 2rem 0 5rem 4rem;
 }
 
 .gerenciarPage-main-container h1 {
     text-transform: uppercase;
     text-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
-}
-
-table td,
-th {
-    border-bottom: 1px solid rgba(0, 0, 0, .3);
-}
-
-table th {
-    padding: 1em 0;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: var(--background-content);
-}
-
-table td {
-    height: 119px;
-}
-
-table .td-description {
-    max-width: 26%;
-    word-wrap: break-word;
-    white-space: normal;
-}
-
-table img {
-    width: 7rem;
-    border-radius: 7px;
-}
-
-table .img-null-select {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 7em;
-    height: 7em;
-    margin: auto;
-    border-radius: 7px;
-    border: 1px solid rgb(41, 0, 41);
-}
-
-table i {
-    color: white;
-    font-size: 1.3rem;
 }
 
 .add-container {
@@ -267,8 +266,8 @@ table i {
 }
 
 .gerenciarPage-main-container .addProducts-button {
-    display: inline-block;
     margin-top: 1.5rem;
+    display: inline-block;
 }
 
 
@@ -297,20 +296,22 @@ table i {
 .update-table select,
 .add-table input:not(#Imagem),
 .add-table select {
-    font-family: var(--font-family);
-    border-radius: 7px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--background);
     font-size: 15px;
+    border-radius: 7px;
     padding: 3px 0 3px 7px;
+    box-shadow: var(--shadow);
+    font-family: var(--font-family);
+    border: 1px solid var(--background);
+
 }
 
 .input-update-container {
     width: 20rem;
     display: flex;
-    flex-direction: column;
     text-align: left;
     margin: 30px auto;
+    flex-direction: column;
+
 }
 
 .input-update-container label:not(.name) {
@@ -321,17 +322,17 @@ table i {
 /* Modelo usado para as páginas de update, delete e addProducts e para os botões */
 .form-container {
     display: flex;
+    margin-top: 25px;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    margin-top: 25px;
 }
 
 .button-container {
+    margin: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 10px;
 }
 
 .button {
@@ -390,9 +391,9 @@ main form input {
     margin: 0 20px;
     padding: 5px 5px;
     font-size: 17px;
-    font-family: var(--font-family);
     border-radius: 7px;
     box-shadow: var(--shadow);
+    font-family: var(--font-family);
     border: 1px solid var(--background);
 }
 
@@ -418,18 +419,18 @@ main .register-container {
 }
 
 main .register-container h1 {
+    font-size: 40px;
     margin: 30px 20px 10px;
     text-transform: uppercase;
     text-shadow: var(--shadow);
-    font-size: 40px;
 }
 
 
 /* Rodapé */
 footer {
-    background-color: var(--background-content);
     text-align: center;
     font-size: 17.8px;
     padding: 1.5em 0;
     margin-top: auto;
+    background-color: var(--background-content);
 }
