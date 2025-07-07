@@ -1,21 +1,22 @@
-<?php require 'DB.php'; ?>
 <?php
+require 'DB.php';
+
 $id = $_POST['Id'];
 $conn = new mysqli($servername, $username, $password, $database);
+
 if ($conn->connect_error) {
-	die("<strong>Falha de conexão: </strong>" . $conn->connect_error);
+    header("Location: ../gerenciarPage.php?status=erro_conexao");
+    exit();
 }
+
 $sql = "DELETE FROM produtos WHERE id = $id";
-?>
 
-<h2>Exclusão de Produto novo</h2>
-
-<?php
-if ($result = mysqli_query($conn, $sql)) {
-	echo " Registro excluído com sucesso! ";
-	echo "<a href='../gerenciarPage.php'>Voltar</a>";
+if ($conn->query($sql) === TRUE) {
+    header("Location: ../gerenciarPage.php?status=sucesso");
 } else {
-	echo " Erro executando DELETE: " . mysqli_error($conn);
-	echo "<a href='../gerenciarPage.php'>Voltar</a>";
+    header("Location: ../gerenciarPage.php?status=erro_delete");
 }
+
+$conn->close();
+exit();
 ?>

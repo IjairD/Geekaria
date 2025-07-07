@@ -85,9 +85,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (inputCelular) {
         inputCelular.addEventListener('keydown', mascaraTelefone);
     }
-    const form = document.querySelector('form'); // ou use um id específico do form
+    const form = document.querySelector('form');
     if (form) {
-        form.addEventListener('submit', function(event) {
+        form.addEventListener('submit', function (event) {
             const senha1 = document.getElementById('password').value;
             const senha2 = document.getElementById('password2').value;
             if (senha1 !== senha2) {
@@ -95,4 +95,5 @@ document.addEventListener('DOMContentLoaded', function () {
                 alert('As senhas não coincidem!');
             }
         });
-}});
+    }
+});

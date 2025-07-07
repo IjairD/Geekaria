@@ -31,7 +31,6 @@
                         <button type="button" class="button" onclick="window.location.href='loginPage.php'">Cancelar</button>
                         <button type="submit" class="button">Criar conta</button>
                     </div>
-                    <p id="erroSenha" style="color:red; display:none;">Senhas não correspondem</p>
                 </form>
             </div>
         </div>

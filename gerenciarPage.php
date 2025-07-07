@@ -9,6 +9,40 @@
 </head>
 <body>
     <?php
+        if (isset($_GET['status'])) {
+        $mensagem = "";
+
+        switch ($_GET['status']) {
+            case 'sucesso':
+                $mensagem = "Produto excluído com sucesso!";
+                break;
+            case 'erro_delete':
+                $mensagem = "Erro ao excluir o produto.";
+                break;
+            case 'erro_conexao':
+                $mensagem = "Erro de conexão com o banco de dados.";
+                break;
+            case 'incluido':
+                $mensagem = "Produto adicionado com sucesso!";
+                break;
+            case 'erro_inclusao':
+                $mensagem = "Erro ao adicionar o produto.";
+                break;
+            case 'atualizado':
+                $mensagem = "Produto atualizado com sucesso!";
+                break;
+            case 'erro_atualizacao':
+                $mensagem = "Erro ao atualizar o produto.";
+                break;    
+        }
+
+        if ($mensagem !== "") {
+            echo "<script>alert('$mensagem');</script>";
+        }
+        }
+    ?>
+
+    <?php
     session_start();
     if(!isset($_SESSION ['login'])){
         unset($_SESSION ['nao_autenticado']);

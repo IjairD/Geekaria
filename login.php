@@ -37,7 +37,7 @@ $sql = "SELECT id_usuario, nome_usuario FROM usuarios
         } else {
             $_SESSION ['nao_autenticado'] = true;
             $_SESSION ['mensagem_header'] = "Login";
-            $_SESSION ['mensagem']        = "ERRO: Login ou Senha inválidos.";
+            $_SESSION ['mensagem']        = "Login ou senha inválidos.";
 
             header('location: loginPage.php');
             exit();
