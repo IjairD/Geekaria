@@ -20,7 +20,7 @@
     if ($conn->connect_error) {
         die("<strong> Falha de conexão: </strong>" . $conn->connect_error);
     }
-    // Obtém as Especialidades Médicas na Base de Dados para um combo box
+    
     $sqlG = "SELECT id_categoria, nome_categoria FROM categoria";
     $result = $conn->query($sqlG);
     $optionsEspec = array();
@@ -42,7 +42,7 @@
                     <td>
                         <div class="input-update-container">
                             <label for="Nome" class="name"><b>Nome*:</b></label>
-                            <input name="Nome" id="Nome" type="text" placeholder="Nome do produto" pattern="[a-zA-Z0-9\u00C0-\u00FF .\-]{5,100}$" title="Nome do Produto" required>
+                            <input name="Nome" id="Nome" type="text" placeholder="Nome do produto" pattern="[a-zA-Z0-9\u00C0-\u00FF .\-]{5,100}$" title="Nome do Produto" required> 
                     
                             <label for="Valor"><b>Valor*:</b></label>
                             <input name="Valor" id="Valor" type="number" step="0.01" placeholder="0.00" title="Preço" pattern="^\d+(\.\d{1,2})?$" required>

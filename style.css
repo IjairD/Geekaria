@@ -73,6 +73,10 @@ body::-webkit-scrollbar-thumb {
     border-radius: 10px;
 }
 
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
 /* Criação do carrosel dos card */
 .carousel-container {
     width: 100vw;

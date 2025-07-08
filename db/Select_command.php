@@ -45,7 +45,6 @@
                 }
                 echo "<td>" . $row["nome_categoria"]; "</td>"
 
-                //Atualizar e Excluir registro de médicos
                     ?>
                     <td>
                         <a href='db/Update_command.php?id=<?php echo $row["id"]; ?>'><i class="bi bi-pencil-square"></i></a>
